@@ -99,6 +99,8 @@ pub fn asset_meta_yaml_cleanup(yaml: &str) -> String {
 
     let re = Regex::new(r"fileID: ([\-0-9]+)").unwrap();
 
+    let yaml = yaml.trim_start_matches('\u{FEFF}');
+
     /*
     // Temporary fix to allow deserialize of asset meta files
     // TODO: Find a better way to do this
